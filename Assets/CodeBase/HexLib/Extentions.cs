@@ -16,7 +16,7 @@ namespace CodeBase.HexLib
             while (queue.Count > 0)
             {
                 var currentHexagon = queue.Dequeue();
-                if (currentHexagon.Value == radius)
+                if (currentHexagon.Value > radius)
                     break;
 
                 result.Add(currentHexagon);

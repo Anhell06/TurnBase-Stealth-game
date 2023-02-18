@@ -79,6 +79,6 @@ public class HexLibTest2
         grid.Remove(new Hex(0, -1, 1));
         var assertGrid = Hex.GetArea(Hex.Zero, 2);
         assertGrid.Remove(new Hex(0, -1, 1));
-        Assert.IsTrue(grid.GetToReachHexagons(Hex.Zero, 2).Except(assertGrid).Count() == 0);
+        Assert.IsTrue(grid.GetToReachHexagons(Hex.Zero, 1).Except(assertGrid).Count() == 0);
     }
 }

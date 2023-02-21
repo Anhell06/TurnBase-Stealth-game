@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3561182147409925333}
   - component: {fileID: 6153416331949421996}
   m_Layer: 0
-  m_Name: Bootstrapper
+  m_Name: DefaultLayoutInstaler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,3 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b49c99cc3a71324d921c097a7a76cf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _layoutSettings:
+    Size: {x: 1, y: 0.75}
+    Origin: {x: 0, y: 0}

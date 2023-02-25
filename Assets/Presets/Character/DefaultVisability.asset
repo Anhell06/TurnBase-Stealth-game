@@ -1,0 +1,245 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 061727e351f2a1b4f8fdeabdb1d490cf, type: 3}
+  m_Name: DefaultVisability
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: Range
+      Entry: 3
+      Data: 2
+    - Name: Filter
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[TileType, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: VisibleHexes
+      Entry: 7
+      Data: 1|System.Collections.Generic.List`1[[CodeBase.HexLib.Hex, HexLib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 12
+    - Name: 
+      Entry: 7
+      Data: CodeBase.HexLib.Hex, HexLib
+    - Name: X
+      Entry: 3
+      Data: 0
+    - Name: Y
+      Entry: 3
+      Data: 0
+    - Name: Z
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CodeBase.HexLib.Hex, HexLib
+    - Name: X
+      Entry: 3
+      Data: 1
+    - Name: Y
+      Entry: 3
+      Data: 0
+    - Name: Z
+      Entry: 3
+      Data: -1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CodeBase.HexLib.Hex, HexLib
+    - Name: X
+      Entry: 3
+      Data: 1
+    - Name: Y
+      Entry: 3
+      Data: -1
+    - Name: Z
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CodeBase.HexLib.Hex, HexLib
+    - Name: X
+      Entry: 3
+      Data: 0
+    - Name: Y
+      Entry: 3
+      Data: -1
+    - Name: Z
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CodeBase.HexLib.Hex, HexLib
+    - Name: X
+      Entry: 3
+      Data: -1
+    - Name: Y
+      Entry: 3
+      Data: 0
+    - Name: Z
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CodeBase.HexLib.Hex, HexLib
+    - Name: X
+      Entry: 3
+      Data: 2
+    - Name: Y
+      Entry: 3
+      Data: 0
+    - Name: Z
+      Entry: 3
+      Data: -2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CodeBase.HexLib.Hex, HexLib
+    - Name: X
+      Entry: 3
+      Data: 2
+    - Name: Y
+      Entry: 3
+      Data: -1
+    - Name: Z
+      Entry: 3
+      Data: -1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CodeBase.HexLib.Hex, HexLib
+    - Name: X
+      Entry: 3
+      Data: 2
+    - Name: Y
+      Entry: 3
+      Data: -2
+    - Name: Z
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CodeBase.HexLib.Hex, HexLib
+    - Name: X
+      Entry: 3
+      Data: 1
+    - Name: Y
+      Entry: 3
+      Data: -2
+    - Name: Z
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CodeBase.HexLib.Hex, HexLib
+    - Name: X
+      Entry: 3
+      Data: 0
+    - Name: Y
+      Entry: 3
+      Data: -2
+    - Name: Z
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CodeBase.HexLib.Hex, HexLib
+    - Name: X
+      Entry: 3
+      Data: -1
+    - Name: Y
+      Entry: 3
+      Data: -1
+    - Name: Z
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: CodeBase.HexLib.Hex, HexLib
+    - Name: X
+      Entry: 3
+      Data: -2
+    - Name: Y
+      Entry: 3
+      Data: 0
+    - Name: Z
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: KnownHexes
+      Entry: 7
+      Data: 2|System.Collections.Generic.List`1[[CodeBase.HexLib.Hex, HexLib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 

@@ -5,7 +5,7 @@ namespace CodeBase.HexLib
 {
     public static class Extentions
     {
-        public static IReadOnlyCollection<Hex> GetToReachHexagons(this ICollection<Hex> grid, Hex center, int radius)
+        public static IReadOnlyCollection<Hex> GetToReachHexagons(this ICollection<Hex> grid, Hex center, int radius )
         {
             var result = new List<KeyValuePair<Hex, int>>();
             var queue = new Queue<KeyValuePair<Hex, int>>();

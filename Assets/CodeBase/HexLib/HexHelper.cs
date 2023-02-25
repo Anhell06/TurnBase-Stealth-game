@@ -25,6 +25,12 @@ namespace CodeBase.HexLib
         public static Hex operator -(Hex a, Hex b)
             => new(a.X - b.X, a.Y - b.Y, a.Z - b.Z);
 
+        public static bool operator ==(Hex a, Hex b)
+            => a.Equals(b);
+
+        public static bool operator !=(Hex a, Hex b)
+            => !a.Equals(b);
+
         public static Dictionary<Direction, Hex> Directions = new()
         {
             { Direction.Up, new Hex(1, 0, -1) },
@@ -90,9 +96,9 @@ namespace CodeBase.HexLib
             for (int i = 0; i <= distance; i++)
             {
                 results.Add(Hex.Round(
-                a.X * (1.0 - step) + b.X * (step * i),
-                a.Y * (1.0 - step) + b.Y * (step * i),
-                a.Z * (1.0 - step) + b.Z * (step * i)
+                (a.X + 1e-06) * (1.0 - (step * i)) + (b.X + 1e-06) * (step * i),
+                (a.Y + 1e-06) * (1.0 - (step * i)) + (b.Y + 1e-06) * (step * i),
+                (a.Z - 2e-06) * (1.0 - (step * i)) + (b.Z - 2e-06) * (step * i)
                 ));
             }
 

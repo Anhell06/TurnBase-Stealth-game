@@ -5,7 +5,9 @@ using Zenject;
 
 public class LayoutInstaller : MonoInstaller
 {
-    public LayoutSettings _layoutSettings;
+    [SerializeField]
+    private LayoutSettings _layoutSettings;
+    public HexGrid _grid;
 
     public override void InstallBindings()
     {
@@ -14,5 +16,7 @@ public class LayoutInstaller : MonoInstaller
             .AsSingle()
             .WithArguments(OrentationType.Flat, _layoutSettings.Size, _layoutSettings.Origin)
             .NonLazy();
+
+        Container.Bind<HexGrid>().FromComponentInHierarchy().AsSingle().NonLazy();
     }
 }

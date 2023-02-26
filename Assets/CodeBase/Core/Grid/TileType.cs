@@ -1,6 +1,9 @@
-﻿public enum TileType
+﻿namespace CodeBase.Core.Grid
 {
-    Floor,
-    Wall,
-    Door
+    public enum TileType
+    {
+        Floor,
+        Wall,
+        Door
+    }
 }

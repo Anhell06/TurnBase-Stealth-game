@@ -1,4 +1,5 @@
-﻿using CodeBase.HexLib;
+﻿using CodeBase.Core.Grid;
+using CodeBase.HexLib;
 using System.Collections.Generic;
 
 public class CharacterVisabilityModel

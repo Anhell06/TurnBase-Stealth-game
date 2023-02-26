@@ -1,9 +1,8 @@
+using CodeBase.Core.Grid;
 using CodeBase.HexLib;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
 using UnityEngine;
-using static UnityEngine.UI.Image;
 
 public class CharacterVisabilityController
 {
@@ -13,7 +12,7 @@ public class CharacterVisabilityController
     private readonly IHexGrid _hexGrid;
 
 
-    public CharacterVisabilityController(CharacterVisabilityView view, CharacterVisabilityModel model, ILayout layout, HexGrid hexGrid)
+    public CharacterVisabilityController(CharacterVisabilityView view, CharacterVisabilityModel model, ILayout layout, IHexGrid hexGrid)
     {
         _view = view;
         _model = model;
@@ -59,13 +58,8 @@ public class CharacterVisabilityController
 
     private void UpdateVisibleTiles(IEnumerable<Hex> oldValue, IEnumerable<Hex> newValue)
     {
-        foreach (var hex in oldValue.Except(newValue))
-            foreach (var tile in _hexGrid.GetTiles(hex))
-                tile.SetInvisible();
+        _hexGrid.MarkHexesInvisible(this, oldValue);
 
-        foreach (var hex in newValue.Except(oldValue))
-            foreach (var tile in _hexGrid.GetTiles(hex))
-                tile.SetVisible();
+        _hexGrid.MarkHexesVisible(this, newValue);
     }
-
 }

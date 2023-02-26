@@ -3,34 +3,64 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class HexGrid : MonoBehaviour, IHexGrid
+namespace CodeBase.Core.Grid
 {
-    public List<Tile> Tiles 
+    internal class HexGrid : MonoBehaviour, IHexGrid
     {
-        get 
+        public List<Tile> Tiles
         {
-            if (_tiles == null)
-            { 
-                _tiles =  new List<Tile>();
-                _tiles.AddRange(transform.GetComponentsInChildren<Tile>());
+            get
+            {
+                if (_tiles == null)
+                {
+                    _tiles = new();
+                    _tiles.AddRange(transform.GetComponentsInChildren<Tile>());
+                }
+
+                return _tiles;
             }
-            return _tiles;
+            private set
+            {
+                _tiles = value;
+            }
         }
-        private set
+
+        private Dictionary<object, List<Hex>> visibilityMap = new();
+
+        private List<Tile> _tiles;
+
+        public void MarkHexesVisible(object sender, IEnumerable<Hex> hexes)
         {
-            _tiles = value;
+            if (!visibilityMap.ContainsKey(sender))
+                visibilityMap.Add(sender, new());
+
+            visibilityMap[sender].AddRange(hexes);
+
+            foreach (var hex in hexes)
+                foreach (var tile in GetTiles_Internal(hex))
+                    tile.SetVisible();
         }
-    }
 
-    private List<Tile> _tiles;
+        public void MarkHexesInvisible(object sender, IEnumerable<Hex> hexes)
+        {
+            if (!visibilityMap.ContainsKey(sender))
+                return;
 
-    private void Start()
-    {
+            foreach (var hex in hexes)
+            {
+                visibilityMap[sender].Remove(hex);
 
-    }
+                if (!visibilityMap[sender].Contains(hex))
+                    foreach (var tile in GetTiles_Internal(hex))
+                        tile.SetInvisible();
+                    
+            }
+        }
 
-    public IEnumerable<Tile> GetTiles(Hex hex)
-    {
-        return Tiles.Where(t => t.Coordinates.Equals(hex));
+        public IEnumerable<ITile> GetTiles(Hex hex)
+            => Tiles.Where(t => t.Coordinates.Equals(hex));
+
+        private IEnumerable<Tile> GetTiles_Internal(Hex hex)
+            => Tiles.Where(t => t.Coordinates.Equals(hex));
     }
 }

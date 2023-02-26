@@ -1,4 +1,5 @@
-﻿using Sirenix.OdinInspector.Editor;
+﻿#if UNITY_EDITOR
+using Sirenix.OdinInspector.Editor;
 using Sirenix.Utilities.Editor;
 using System.Linq;
 using UnityEngine;
@@ -42,3 +43,4 @@ public class SimpleTreeMenuEditor<T> where T : ScriptableObject
     protected virtual void OnNewCreated(T design) =>
       Parent.TrySelectMenuItemWithObject(design);
 }
+#endif

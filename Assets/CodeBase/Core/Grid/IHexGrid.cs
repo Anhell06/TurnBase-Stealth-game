@@ -1,9 +1,12 @@
 ﻿using CodeBase.HexLib;
 using System.Collections.Generic;
 
-public interface IHexGrid
+namespace CodeBase.Core.Grid
 {
-    List<Tile> Tiles { get; }
-
-    IEnumerable<Tile> GetTiles(Hex hex);
+    public interface IHexGrid
+    {
+        void MarkHexesVisible(object sender, IEnumerable<Hex> hexes);
+        void MarkHexesInvisible(object sender, IEnumerable<Hex> hexes);
+        IEnumerable<ITile> GetTiles(Hex hex);
+    }
 }

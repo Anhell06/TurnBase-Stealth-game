@@ -1,25 +1,27 @@
 ﻿using CodeBase.HexLib;
 using System.ComponentModel;
-using UnityEngine;
 
-public class CharacterModel : INotifyPropertyChanged
+namespace CodeBase.Character
 {
-    private Hex _currentPosition;
-
-    public Hex CurrentPosition
+    public class CharacterModel : INotifyPropertyChanged
     {
-        get => _currentPosition;
-        private set
-        { 
-            _currentPosition = value;
-            OnPropertyChanged(nameof(CurrentPosition));
+        private Hex _currentPosition;
+
+        public Hex CurrentPosition
+        {
+            get => _currentPosition;
+            private set
+            {
+                _currentPosition = value;
+                OnPropertyChanged(nameof(CurrentPosition));
+            }
         }
-    }
 
-    public event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler PropertyChanged;
 
-    protected virtual void OnPropertyChanged(string propertyName)
-    {
-        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
     }
 }

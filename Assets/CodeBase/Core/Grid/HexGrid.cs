@@ -11,7 +11,7 @@ namespace CodeBase.Core.Grid
         {
             get
             {
-                if (_tiles == null)
+                if (_tiles == null || _tiles.Count == 0)
                 {
                     _tiles = new();
                     _tiles.AddRange(transform.GetComponentsInChildren<Tile>());
@@ -60,7 +60,13 @@ namespace CodeBase.Core.Grid
         public IEnumerable<ITile> GetTiles(Hex hex)
             => Tiles.Where(t => t.Coordinates.Equals(hex));
 
-        private IEnumerable<Tile> GetTiles_Internal(Hex hex)
-            => Tiles.Where(t => t.Coordinates.Equals(hex));
+        internal IEnumerable<Tile> GetTiles_Internal(Hex hex)
+        {
+#if UNITY_EDITOR
+            return transform.GetComponentsInChildren<Tile>().Where(t => t.Coordinates.Equals(hex));
+#else
+            return Tiles.Where(t => t.Coordinates.Equals(hex));
+#endif
+        }
     }
 }

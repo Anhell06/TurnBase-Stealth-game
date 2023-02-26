@@ -1,15 +1,17 @@
 using System;
-using System.Linq;
 
-[Serializable]
-public class TurnBaseModel
+namespace CodeBase.Core.TurnBaseSystem
 {
-    public int TurnNumder;
-    public Phase CurrentPhase;
-
-    public TurnBaseModel(int turnNumder, Phase currentPhase)
+    [Serializable]
+    internal class TurnBaseModel
     {
-        TurnNumder = turnNumder;
-        CurrentPhase = currentPhase;
+        public int TurnNumder;
+        public Phase CurrentPhase;
+
+        public TurnBaseModel(int turnNumder, Phase currentPhase)
+        {
+            TurnNumder = turnNumder;
+            CurrentPhase = currentPhase;
+        }
     }
 }

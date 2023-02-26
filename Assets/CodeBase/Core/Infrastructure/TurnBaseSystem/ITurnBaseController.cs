@@ -1,6 +1,9 @@
-﻿public interface ITurnBaseController
+﻿namespace CodeBase.Core.TurnBaseSystem
 {
-    void RunCycle();
-    void Subscribe(Phase phase, PhaseEvent phaseEvent);
-    void Unsubscribe(Phase phase, PhaseEvent phaseEvent);
+    public interface ITurnBaseController
+    {
+        void RunCycle();
+        void Subscribe(Phase phase, PhaseEvent phaseEvent);
+        void Unsubscribe(Phase phase, PhaseEvent phaseEvent);
+    }
 }

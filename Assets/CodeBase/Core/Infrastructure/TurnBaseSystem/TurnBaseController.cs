@@ -2,50 +2,53 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public delegate void PhaseEvent();
-
-public class TurnBaseController : ITurnBaseController
+namespace CodeBase.Core.TurnBaseSystem
 {
-    private readonly TurnBaseModel _model;
-    private readonly Dictionary<Phase, List<PhaseEvent>> _phaseEvents = new Dictionary<Phase, List<PhaseEvent>>();
+    public delegate void PhaseEvent();
 
-    public TurnBaseController()
+    internal class TurnBaseController : ITurnBaseController
     {
-        _model = new TurnBaseModel(0, Phase.Restor);
-    }
+        private readonly TurnBaseModel _model;
+        private readonly Dictionary<Phase, List<PhaseEvent>> _phaseEvents = new Dictionary<Phase, List<PhaseEvent>>();
 
-    public void RunCycle()
-    {
-        _model.TurnNumder++;
-
-        foreach (Phase phase in Enum.GetValues(typeof(Phase)))
+        public TurnBaseController()
         {
-            _model.CurrentPhase = phase;
-
-            if (!_phaseEvents.TryGetValue(phase, out var phaseEvents))
-                continue;
-
-            Debug.Log($"Triggering {phase} phase events...");
-
-            foreach (PhaseEvent phaseEvent in phaseEvents)
-                phaseEvent?.Invoke();
+            _model = new TurnBaseModel(0, Phase.Restor);
         }
-    }
 
-    public void Subscribe(Phase phase, PhaseEvent phaseEvent)
-    {
-        if (!_phaseEvents.ContainsKey(phase))
-            _phaseEvents.Add(phase, new List<PhaseEvent>());
+        public void RunCycle()
+        {
+            _model.TurnNumder++;
 
-        _phaseEvents[phase].Add(phaseEvent);
-        Debug.Log($"{phaseEvent.Method.Name} subscribed to {phase} phase event");
-    }
+            foreach (Phase phase in Enum.GetValues(typeof(Phase)))
+            {
+                _model.CurrentPhase = phase;
 
-    public void Unsubscribe(Phase phase, PhaseEvent phaseEvent)
-    {
-        if (_phaseEvents.ContainsKey(phase))
-            _phaseEvents[phase].Remove(phaseEvent);
+                if (!_phaseEvents.TryGetValue(phase, out var phaseEvents))
+                    continue;
 
-        Debug.Log($"{phaseEvent.Method.Name} unsubscribed from {phase} phase event");
+                Debug.Log($"Triggering {phase} phase events...");
+
+                foreach (PhaseEvent phaseEvent in phaseEvents)
+                    phaseEvent?.Invoke();
+            }
+        }
+
+        public void Subscribe(Phase phase, PhaseEvent phaseEvent)
+        {
+            if (!_phaseEvents.ContainsKey(phase))
+                _phaseEvents.Add(phase, new List<PhaseEvent>());
+
+            _phaseEvents[phase].Add(phaseEvent);
+            Debug.Log($"{phaseEvent.Method.Name} subscribed to {phase} phase event");
+        }
+
+        public void Unsubscribe(Phase phase, PhaseEvent phaseEvent)
+        {
+            if (_phaseEvents.ContainsKey(phase))
+                _phaseEvents[phase].Remove(phaseEvent);
+
+            Debug.Log($"{phaseEvent.Method.Name} unsubscribed from {phase} phase event");
+        }
     }
 }

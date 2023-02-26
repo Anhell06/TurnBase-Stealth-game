@@ -85,8 +85,8 @@ namespace CodeBase.Core.Grid
 
         private void DeletTile(Hex hexCoord)
         {
-            foreach (var tile in _hexGrid.GetTiles(hexCoord))
-                DestroyImmediate(((Tile)tile).gameObject);
+            foreach (var tile in _hexGrid.GetTiles_Internal(hexCoord))
+                DestroyImmediate(tile.gameObject);
         }
 
         private void PlaceTile(Hex hexCoord, TileData tileData)

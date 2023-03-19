@@ -53,7 +53,6 @@ namespace CodeBase.Core.Grid
                 if (!visibilityMap[sender].Contains(hex))
                     foreach (var tile in GetTiles_Internal(hex))
                         tile.SetInvisible();
-                    
             }
         }
 
